@@ -4,6 +4,8 @@ import React from 'react'
 export default class extends React.Component {
   static async botonicInit({ input }) {
     if (input['intent'] === undefined) return { errors: true }
+    let answer = input.defaultFallback
+    return { answer }
   }
 
   render() {
@@ -14,6 +16,6 @@ export default class extends React.Component {
           the bot.
         </Text>
       )
-    return <Text>Try typing "hello" to start the bot.</Text>
+    return <Text>{this.props.answer}</Text>
   }
 }

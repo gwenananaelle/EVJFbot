@@ -1,6 +1,8 @@
 import NotFound from './actions/404'
 import Bye from './actions/bye'
 import Hi from './actions/hi'
+import Drink from './actions/drink'
+import Music from './actions/music'
 
 export const routes = [
   // Captures different intents (enable Dialogflow in src/plugins.js)
@@ -13,6 +15,8 @@ export const routes = [
       i.intent == 'smalltalk.greetings.bye',
     action: Hi,
   },
+  { path: 'drink', intent: 'Ask Drink', action: Drink },
+  { path: 'music', intent: 'Listen To Playlist', action: Music },
   { path: 'bye', intent: 'smalltalk.greetings.bye', action: Bye },
   { path: 'not_found', type: /.*/, action: NotFound },
 
