@@ -5,6 +5,8 @@ import Drink from './actions/drink'
 import Music from './actions/music'
 import Intro from './actions/intro'
 import SearchRoom from './actions/searchRoom'
+import Phone from './actions/phone'
+import Messages from './actions/caches/messages'
 import { routes as searchRoutes } from './actions/searchFlow/search.routes'
 
 
@@ -17,6 +19,9 @@ export const routes = [
   { path: 'music', intent: 'Listen To Playlist', action: Music },
   { path: 'intro', intent: 'Start Game', action: Intro },
   { path: 'search', input: (i) => i.intent == 'Search' && i.entities["Room"], action: SearchRoom, childRoutes: searchRoutes },
+  { path: 'phone', text: /(\d){4}/i, action: Phone, childRoutes: [
+    { path: 'messages', action: Messages },
+  ],},
 
   { path: 'bye', intent: 'smalltalk.greetings.bye', action: Bye },
   { path: 'not_found', type: /.*/, action: NotFound },
