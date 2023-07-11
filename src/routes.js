@@ -8,7 +8,11 @@ import SearchRoom from './actions/searchRoom'
 import Phone from './actions/phone'
 import Messages from './actions/caches/messages'
 import Photos from './actions/caches/photos'
-import { routes as searchRoutes } from './actions/searchFlow/search.routes'
+import Insta from './actions/caches/insta'
+import Sofa from "./actions/caches/sofa"
+import Calendar from "./actions/caches/calendar"
+import Tv from "./actions/caches/tv"
+import Nightstand from "./actions/caches/nightstand"
 
 
 export const routes = [
@@ -19,11 +23,16 @@ export const routes = [
   { path: 'drink', intent: 'Ask Drink', action: Drink },
   { path: 'music', intent: 'Listen To Playlist', action: Music },
   { path: 'intro', intent: 'Start Game', action: Intro },
-  { path: 'search', input: (i) => i.intent == 'Search' && i.entities["Room"], action: SearchRoom, childRoutes: searchRoutes },
+  { path: 'search', input: (i) => i.intent == 'Search' && i.entities["Room"], action: SearchRoom },
   { path: 'phone', text: /^1512$/i, action: Phone, childRoutes: [
-    { path: 'messages', action: Messages },
+    { path: 'messages',session: (s) => !s.user.islocked, action: Messages },
     { path: 'photos', session: (s) => !s.user.islocked, action: Photos },
+    { path: 'insta', session: (s) => !s.user.islocked, action: Insta },
   ],},
+  { path: 'sofa', input: (i) => i.entities["Cache"]=='sofa', action: Sofa },
+  { path: 'calendar', input: (i) => i.entities["Cache"]=='calendar', action: Calendar },
+  { path: 'tv', input: (i) => i.entities["Cache"]=='tv', action: Tv },
+  { path: 'nightstand', input: (i) => i.entities["Cache"]=='nightstand', action: Nightstand },
 
   { path: 'bye', intent: 'smalltalk.greetings.bye', action: Bye },
   { path: 'not_found', type: /.*/, action: NotFound },

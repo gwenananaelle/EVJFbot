@@ -8,11 +8,12 @@ export default class extends React.Component {
       isLocked: false,
     }
   }
+  // check if the phone is locked => {this.state.isLocked ? "yes" : "no"}
+
   render() {
     return (
       <>
         <Text>You unlocked the phone, there's only a few apps : photos, instagram, shazam and there is a message unread
-          {this.state.isLocked ? "yes" : "no"}
         <Button path='photos'>Open Photos</Button>
         <Button path='messages'>Open Messages</Button>
         <Button path='insta'>Open Instagram</Button>
