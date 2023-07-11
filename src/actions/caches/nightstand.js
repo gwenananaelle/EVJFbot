@@ -1,4 +1,4 @@
-import { Text, Image, Document,} from '@botonic/react'
+import { Text, Document,} from '@botonic/react'
 import React from 'react'
 import kamasutra from '../../assets/kamasutra.png'
 
