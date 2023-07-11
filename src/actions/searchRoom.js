@@ -1,5 +1,6 @@
-import { Text } from '@botonic/react'
+import { Text, Document } from '@botonic/react'
 import React from 'react'
+import lasvegas from '../assets/lasvegas.png'
 
 export default class extends React.Component {
     static async botonicInit({ input }) {
@@ -34,8 +35,9 @@ export default class extends React.Component {
       if (this.props.room == 'mailbox') {
         return (
           <>
-          <Text>You find this card in the mailbox</Text>
-        </>
+            <Document src={lasvegas} />
+            <Text>You find this card in the mailbox</Text>
+          </>
         )
       }
       return (
