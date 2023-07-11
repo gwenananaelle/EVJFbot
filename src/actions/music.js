@@ -7,6 +7,10 @@ static async botonicInit({ input, session }) {
     return { answer, session}
     }
   render() {
-    return <Text>Those are my favorite songs right now, do you like it ? 🥰🕺 </Text>
+    return 
+      <>
+        <Text>Those are my favorite songs right now, do you like it ? 🥰🕺 </Text>
+        <Button url='https://deezer.page.link/8rP3TbaaX42hYeyv7'>Listen to the playlist</Button>
+      </>
   }
 }
