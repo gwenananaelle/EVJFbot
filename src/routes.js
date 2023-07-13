@@ -24,7 +24,7 @@ export const routes = [
   { path: 'music', intent: 'Listen To Playlist', action: Music },
   { path: 'intro', intent: 'Start Game', action: Intro },
   { path: 'search', input: (i) => i.intent == 'Search' && i.entities["Room"], action: SearchRoom },
-  { path: 'phone', text: /^1512$/i, action: Phone, childRoutes: [
+  { path: 'phone', text: (t) => t.includes('1512'), action: Phone, childRoutes: [
     { path: 'messages',session: (s) => !s.user.islocked, action: Messages },
     { path: 'photos', session: (s) => !s.user.islocked, action: Photos },
     { path: 'insta', session: (s) => !s.user.islocked, action: Insta },
