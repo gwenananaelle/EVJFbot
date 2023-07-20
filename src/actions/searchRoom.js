@@ -1,6 +1,7 @@
 import { Text, Document } from '@botonic/react'
 import React from 'react'
 import lasvegas from '../assets/lasvegas.png'
+import { webchat } from '../webchat/index'
 
 export default class extends React.Component {
     static async botonicInit({ input }) {
@@ -16,6 +17,7 @@ export default class extends React.Component {
         )
       }
       if (this.props.room == 'living room') {
+        webchat.addToMenu("livingroom");
         return (
           <>
           <Text>The living room is nicely decorated, there is comfortable sofa and you feel like something is stuck under the cushion...</Text>
@@ -26,6 +28,7 @@ export default class extends React.Component {
         )
       }
       if (this.props.room == 'bedroom') {
+        webchat.addToMenu("bedroom");
         return (
           <>
           <Text>the only thing noticeable here is the half opened drawer in the nightstand...</Text>
@@ -33,6 +36,7 @@ export default class extends React.Component {
         )
       }
       if (this.props.room == 'mailbox') {
+        webchat.addToMenu("mailbox");
         return (
           <>
             <Document src={lasvegas} />

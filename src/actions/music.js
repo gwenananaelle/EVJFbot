@@ -1,5 +1,6 @@
 import { Text, Button } from '@botonic/react'
 import React from 'react'
+import { webchat } from '../webchat/index'
 
 export default class extends React.Component {
   static async botonicInit({ input, session }) {
@@ -7,6 +8,7 @@ export default class extends React.Component {
       return { answer, session}
       }
   render() {
+    webchat.addToMenu("music");
     return (
       <>
         <Text>Those are my favorite songs right now, do you like it ? 🥰🕺 </Text>
