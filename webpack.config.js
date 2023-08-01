@@ -59,7 +59,7 @@ const WEBPACK_ENTRIES = {
 }
 
 const TEMPLATES = {
-  WEBCHAT: 'public/index.html',
+  WEBCHAT: '/public/index.html',
   WEBVIEWS: 'webview.template.html',
 }
 
