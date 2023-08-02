@@ -13,7 +13,9 @@
       type =
         'text/javascript' >
         document.addEventListener('DOMContentLoaded', function (event) {
-          Botonic.render(document.getElementById('root'))
+          Botonic.render(document.getElementById('root'), {
+            onInit: app => app.open(),
+          })
         })
     </script>
   </body>

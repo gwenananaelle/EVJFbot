@@ -1,6 +1,6 @@
 #botonic-webchat{
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   right: 0;
   bottom: 0;
 }
@@ -12,8 +12,9 @@
   right: 0 !important;
 }
 
-[role=header] {
-  border-radius: 0 !important;
+#botonic-webchat [role=header]{
+  padding-top: 10px;
+  border-radius: 0;
 }
 
 [role=header] img{
