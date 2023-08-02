@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --env target=all --mode=production",
+    "build:self-hosted": "webpack --env target=self-hosted --mode=production",
     "start": "webpack serve --env target=dev --mode=development",
     "test": "jest",
     "train:ner": "ts-node src/nlp/tasks/ner/train.ts",

@@ -6,6 +6,8 @@ import { plugins } from '../src/plugins'
 import { routes } from '../src/routes'
 import { webchat } from '../src/webchat'
 
+import "../public/style.css"
+
 export const app = new DevApp({
   routes,
   locales,
