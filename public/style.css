@@ -1,6 +1,8 @@
 #botonic-webchat{
   height: 100%;
   width: 100%;
+  right: 0;
+  bottom: 0;
 }
 
 [role=trigger-button]{
@@ -10,12 +12,12 @@
   right: 0 !important;
 }
 
-[role=header]{
-  padding-top: 10px;
+[role=header] {
+  border-radius: 0 !important;
 }
+
 [role=header] img{
   margin-left: 50px;
-  margin-top: 5px;
 }
 
 h1, h2{
