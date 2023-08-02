@@ -14,7 +14,6 @@ import Calendar from "./actions/caches/calendar"
 import Tv from "./actions/caches/tv"
 import Nightstand from "./actions/caches/nightstand"
 
-
 export const routes = [
   // Captures different intents (enable Dialogflow in src/plugins.js)
   // You can trigger your actions through an intent with 'input' or 'intent' rules
@@ -30,10 +29,11 @@ export const routes = [
     { path: 'insta', session: (s) => !s.user.islocked, action: Insta },
   ],},
   { path: 'sofa', input: (i) => i.entities["Cache"]=='sofa', action: Sofa },
+  { path: 'sofa', text: (t) => t.includes('cellphone'), action: Sofa },
   { path: 'calendar', input: (i) => i.entities["Cache"]=='calendar', action: Calendar },
   { path: 'tv', input: (i) => i.entities["Cache"]=='tv', action: Tv },
   { path: 'nightstand', input: (i) => i.entities["Cache"]=='nightstand', action: Nightstand },
-
+  { path: 'nightstand', text: (t) => t.includes('kamasutra'), action: Nightstand },
   { path: 'bye', intent: 'smalltalk.greetings.bye', action: Bye },
   { path: 'not_found', type: /.*/, action: NotFound },
 

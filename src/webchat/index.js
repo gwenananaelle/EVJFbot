@@ -14,4 +14,13 @@ export const webchat = {
             image: Avatar,
           },
     },
+    persistentMenu: [
+        { closeLabel: "Close Menu" },
+        { label: "start", payload: "start"}
+      ],     
+    addToMenu: function(value) {
+        if (this.persistentMenu.some(item => item.label === value) == false) {
+            this.persistentMenu.push({ label: value, payload: value});
+        }
+    } 
 }
