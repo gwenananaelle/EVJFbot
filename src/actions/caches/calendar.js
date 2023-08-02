@@ -7,7 +7,7 @@ import { webchat } from '../../webchat/index'
 export default class extends React.Component {
 
   render() {
-    webchat.persistentMenu.push({ label: "calendar", payload: "calendar"});
+    webchat.addToMenu("calendar");
     return (
       <>
         <Document src={calendar} />

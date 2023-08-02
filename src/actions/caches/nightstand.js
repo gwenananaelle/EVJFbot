@@ -5,7 +5,7 @@ import { webchat } from '../../webchat/index'
 
 export default class extends React.Component {
   render() {
-    webchat.addToMenu("nightstand");
+    webchat.addToMenu("kamasutra");
     return (
       <>
         <Document src={kamasutra} />
