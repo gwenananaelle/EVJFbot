@@ -5,8 +5,13 @@ import lips_alphabet from '../../assets/lips_alphabet.png'
 import { webchat } from '../../webchat/index'
 
 export default class extends React.Component {
+  static async botonicInit({ session }) {
+    const clues = session.user.extra_data.clueFound;
+    return { clues }
+  }
   render() {
     webchat.addToMenu("lips");
+    this.props.clues.push("lips");
     return (
       <>
         <Document src={lips} />
