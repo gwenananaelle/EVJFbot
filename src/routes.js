@@ -13,7 +13,7 @@ import Sofa from "./actions/caches/sofa"
 import Calendar from "./actions/caches/calendar"
 import Tv from "./actions/caches/tv"
 import Nightstand from "./actions/caches/nightstand"
-
+import GuessName from "./actions/guessName"
 
 export const routes = [
   // Captures different intents (enable Dialogflow in src/plugins.js)
@@ -24,16 +24,18 @@ export const routes = [
   { path: 'music', intent: 'Listen To Playlist', action: Music },
   { path: 'intro', intent: 'Start Game', action: Intro },
   { path: 'search', input: (i) => i.intent == 'Search' && i.entities["Room"], action: SearchRoom },
+  { path: 'guessName', input: (i) => i.intent == 'guess Name', action: GuessName },
   { path: 'phone', text: (t) => t.includes('1512'), action: Phone, childRoutes: [
     { path: 'messages',session: (s) => !s.user.islocked, action: Messages },
     { path: 'photos', session: (s) => !s.user.islocked, action: Photos },
     { path: 'insta', session: (s) => !s.user.islocked, action: Insta },
   ],},
   { path: 'sofa', input: (i) => i.entities["Cache"]=='sofa', action: Sofa },
+  { path: 'sofa', text: (t) => t.includes('cellphone'), action: Sofa },
   { path: 'calendar', input: (i) => i.entities["Cache"]=='calendar', action: Calendar },
   { path: 'tv', input: (i) => i.entities["Cache"]=='tv', action: Tv },
   { path: 'nightstand', input: (i) => i.entities["Cache"]=='nightstand', action: Nightstand },
-
+  { path: 'nightstand', text: (t) => t.includes('kamasutra'), action: Nightstand },
   { path: 'bye', intent: 'smalltalk.greetings.bye', action: Bye },
   { path: 'not_found', type: /.*/, action: NotFound },
 

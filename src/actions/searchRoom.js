@@ -1,12 +1,14 @@
 import { Text, Document } from '@botonic/react'
 import React from 'react'
 import lasvegas from '../assets/lasvegas.png'
+import { webchat } from '../webchat/index'
 
 export default class extends React.Component {
-    static async botonicInit({ input }) {
-        let room = input.entities["Room"]
-        return { room }
-      }
+  static async botonicInit({ input, session }) {
+    let room = input.entities["Room"]
+    const clues = session.user.extra_data.clueFound;
+    return { room, clues }
+  }
   render() {
       if (!this.props.room) {
         return (
@@ -33,6 +35,8 @@ export default class extends React.Component {
         )
       }
       if (this.props.room == 'mailbox') {
+        webchat.addToMenu("card");
+        this.props.clues.push("card");
         return (
           <>
             <Document src={lasvegas} />
